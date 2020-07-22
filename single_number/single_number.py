@@ -4,17 +4,28 @@ Returns: an integer
 '''
 def single_number(arr):
 
-    double = True
+    repeats = list()
     
-    i = 0
+    for i, num in enumerate(arr):
+        if not num in arr[i+1:] and not num in repeats:
+            return num
+        repeats.append(num)
 
-    while double == True:
-        if arr[i] != arr[i+1]:
-            double = False
-            odd_out = arr[i]
-        i += 2
+    # First solution:
+    # Looks like this doesn't work because 
+    # the test randomized it so that they won't always
+    # be next to each other
 
-    return odd_out
+    # double = True
+    # i = 0
+
+    # while double == True:
+    #     if arr[i] != arr[i+1]:
+    #         double = False
+    #         odd_out = arr[i]
+    #     i += 2
+
+    # return odd_out
 
     # TODO: 
     # Recursive implementation
